@@ -12,7 +12,7 @@ router.post('/api/users/signup',[
         .trim()
         .isLength({min:4, max:20})
         .withMessage('Password must be between 4 and 20 characters')
-], (req:Request, res:Response) => {
+], async (req:Request, res:Response) => {
     const errors = validationResult(req);//It checks if there are any validation errors based on the validation rules defined for the request.
     
     if(!errors.isEmpty()){ //This line checks if the errors object is not empty, indicating that there are validation errors.
