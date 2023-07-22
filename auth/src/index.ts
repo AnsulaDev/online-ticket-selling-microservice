@@ -34,6 +34,9 @@ app.all('*', async() =>{
 app.use(errorHandler);
 
 const start = async () =>{
+    if(!process.env.JWT_KEY){
+        throw new Error("Jwt key must be defiend");
+    }
     try{
         await mongoose.connect('mongodb://auth-mongo-srv:27017/auth');
         console.log('Connected to mongodb')
