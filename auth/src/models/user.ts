@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 },{
+    //we do not want the password property, _id and __v to show up inside of any JSON representation.
     toJSON:{
         transform(doc, ret){
             ret.id = ret._id;
